@@ -34,7 +34,7 @@ function App() {
     for (let i = 0; i < 4; i++) {
         randomItems();
     }
-    
+
     console.log(cocktails);
   }, []);
 
@@ -42,7 +42,7 @@ function App() {
     <div className="container">
       <Navbar />
       <p style={{textAlign: "center"}}>Random Cocktails</p>
-      <ItemList />
+      <ItemList items={cocktails}/>
  
     </div>
   );

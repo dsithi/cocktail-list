@@ -4,14 +4,15 @@ const Item = ({ data }) => {
     return (
         <div className="item">
             <div className="info">
-                <h2 className="drink-name">Gin</h2>
+                <h2 className="drink-name">{data.strDrink}</h2>
                 <div className="type">
-                    <p>Alcoholic</p>
-                    <p>Ordinary Drink</p>
+                    <p>{data.strAlcoholic}</p>
+                    <p>{data.strCategory}</p>
+                    <p>{data.strGlass}</p>
                 </div>
             </div>
-            <div className="thumbnail">
-            <img src="https://www.thecocktaildb.com/images/ingredients/gin-Small.png" />
+            <div >
+                <img className="thumbnail" src={data.strDrinkThumb} />
             </div>
             
         </div>
