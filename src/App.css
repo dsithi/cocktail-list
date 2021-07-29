@@ -7,14 +7,14 @@ html {
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background-color: #1b202b;
+  
   color: white;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(244,244,244);
+  background-color: #1b202b;
   color: #333;
 }
 
@@ -77,6 +77,55 @@ p {
   cursor: pointer;
 }
 
+.item {
+  margin: 100px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.55);
+  background-color: #2f3747;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: background-color 250ms;
+}
+
+.item:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0,0,0,0.90);
+  transform: scale(1.04);
+}
+
+.item h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+
+.type {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.type p {
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background-color: rgba(0,0,0,0.40);
+  border-radius: 12px;
+  padding: 2px;
+  line-height: 1rem;
+  padding: .6rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.thumbnail {
+  
+}
+
+
 @media only screen and (max-width:580px) {
   .nav, .form {
     display: grid;
@@ -88,5 +137,9 @@ p {
     height: 70%;
     line-height: 1px;
     width: 250px;
+  }
+  .item {
+    margin-top: 300px;
+    margin-left: 50px;
   }
 }
