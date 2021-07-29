@@ -1,13 +1,13 @@
 import './App.css';
 import Navbar from './Components/Navbar';
-import Item from './Components/Item';
+import ItemList from './Components/ItemList';
 
 function App() {
   return (
     <div className="container">
       <Navbar />
-      <Item />
-      <Item />
+      <ItemList />
+
     </div>
   );
 }
