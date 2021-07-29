@@ -1,12 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Searchbar from './Components/Searchbar';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <div className="container">
-      <h2 className="title">Cocktail List</h2>
-      <Searchbar />
+      <Navbar />
     </div>
   );
 }
