@@ -6,6 +6,7 @@ const Item = ({ data, onTabChange, setCocktail }) => {
              onClick={() => {
                  onTabChange(1);
                  setCocktail(data);
+                 
              }}>
             <div className="info">
                 <h2 className="drink-name">{data.strDrink}</h2>

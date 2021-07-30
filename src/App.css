@@ -45,7 +45,7 @@ p {
   margin-top: 10px;
 }
 
-.nav-item:hover {
+.nav-item:hover, .title:hover {
   cursor: pointer;
   color: rgb(233, 233, 233);
   text-decoration: underline;

@@ -5,6 +5,12 @@ import ItemList from './Components/ItemList';
 import ItemPage from './Components/ItemPage';
 
 function App() {
+  // re render component
+  const handleRefresh = () => {
+    setCocktails([]);
+    generateItems();
+  }
+
   /* --- keep track of current page ---*/
   // state for active tab to display correct page
   const [activeTab, setTab] = useState(0);
@@ -21,7 +27,7 @@ function App() {
   const renderContent = () => {
     switch(activeTab) {
       default:
-      case 0: // Random Cocktails
+      case 0: // return to start page with previous random cocktails
           return (
             <>
               <p style={{textAlign: "center"}}>Random Cocktails</p>
@@ -32,6 +38,13 @@ function App() {
           return (
             <ItemPage data={currentCocktail}/>
           );
+      case 2: // generate new random cocktails
+            return (
+            <>
+              <p style={{textAlign: "center"}}>Random Cocktails</p>
+              <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
+            </>
+            )
     }
   }
 
@@ -39,40 +52,48 @@ function App() {
   // states for random cocktails
   const [cocktails, setCocktails] = useState([]);
 
+
+  // function to generate cocktails
+const generateItems = () => {
+      // reset state to generate new cocktails
+      if (cocktails.length >= 8) {
+        setCocktails([]);
+      } 
+
+      // random cocktail from api
+      const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+    
+      // function to call random items from api
+      const randomItems = async () => {
+      try {
+        const res = await fetch(url);
+         const data = await res.json();
+  
+        // push new items to array
+        setCocktails(prevData => [...prevData, ...data.drinks]);  
+       } catch(err) {
+          console.log(err);
+        } 
+      }
+  
+
+  
+      // 4 random cocktails
+      for (let i = 0; i < 8; i++) {
+          randomItems();
+      }
+  
+     
+}
+
   // call function on render with useEffect
   useEffect(() => {
-    // random cocktail from api
-    const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-    
-    // function to call random items from api
-    const randomItems = async () => {
-    try {
-      const res = await fetch(url);
-       const data = await res.json();
-
-      // push new items to array
-      setCocktails(prevData => [...prevData, ...data.drinks]);  
-     } catch(err) {
-        console.log(err);
-      } 
-    }
-
-    // reset state to generate new cocktails
-    if (cocktails.length >= 4) {
-      setCocktails([]);
-    } 
-
-    // 4 random cocktails
-    for (let i = 0; i < 8; i++) {
-        randomItems();
-    }
-
-    console.log(cocktails);
+    generateItems();
   }, []);
 
   return (
     <div className="container">
-      <Navbar activeTab={activeTab} onTabChange={handleTabChange} />
+      <Navbar activeTab={activeTab} onTabChange={handleTabChange} handleRefresh={handleRefresh}/>
       { /*
         <p style={{textAlign: "center"}}>Random Cocktails</p>
         <ItemList items={cocktails}/>
