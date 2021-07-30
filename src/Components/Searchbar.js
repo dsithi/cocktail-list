@@ -22,7 +22,6 @@ const Searchbar = () => {
             const data = await res.json(); // return promise
 
             setCocktails(data.drinks);
-            console.log(cocktails);
         } catch(err) {
             console.log(err);
         }

@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Navbar from './Components/Navbar';
 import ItemList from './Components/ItemList';
+import ItemPage from './Components/ItemPage';
 
 function App() {
   // states for random cocktails
@@ -41,9 +42,11 @@ function App() {
   return (
     <div className="container">
       <Navbar />
-      <p style={{textAlign: "center"}}>Random Cocktails</p>
-      <ItemList items={cocktails}/>
- 
+      { /*
+        <p style={{textAlign: "center"}}>Random Cocktails</p>
+        <ItemList items={cocktails}/>
+      */ }
+      <ItemPage />
     </div>
   );
 }
