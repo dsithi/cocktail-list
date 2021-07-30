@@ -45,6 +45,12 @@ p {
   margin-top: 10px;
 }
 
+.nav-item:hover {
+  cursor: pointer;
+  color: rgb(233, 233, 233);
+  text-decoration: underline;
+}
+
 .form {
   display: flex;
   justify-content: center;

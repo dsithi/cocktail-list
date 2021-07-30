@@ -5,6 +5,37 @@ import ItemList from './Components/ItemList';
 import ItemPage from './Components/ItemPage';
 
 function App() {
+  /* --- keep track of current page ---*/
+  // state for active tab to display correct page
+  const [activeTab, setTab] = useState(0);
+
+  // state for clicked cocktail
+  const [currentCocktail, setCocktail] = useState([]);
+
+  // function to handle tab changes, pass to navbar
+  const handleTabChange = (index) => {
+    setTab(index);
+  }
+
+  // switch statement to determine which page is rendered
+  const renderContent = () => {
+    switch(activeTab) {
+      default:
+      case 0: // Random Cocktails
+          return (
+            <>
+              <p style={{textAlign: "center"}}>Random Cocktails</p>
+              <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
+            </>
+          );
+      case 1: // Item page
+          return (
+            <ItemPage data={currentCocktail}/>
+          );
+    }
+  }
+
+  /* --- Generate random cocktails --- */
   // states for random cocktails
   const [cocktails, setCocktails] = useState([]);
 
@@ -32,7 +63,7 @@ function App() {
     } 
 
     // 4 random cocktails
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 8; i++) {
         randomItems();
     }
 
@@ -41,12 +72,12 @@ function App() {
 
   return (
     <div className="container">
-      <Navbar />
+      <Navbar activeTab={activeTab} onTabChange={handleTabChange} />
       { /*
         <p style={{textAlign: "center"}}>Random Cocktails</p>
         <ItemList items={cocktails}/>
       */ }
-      <ItemPage />
+      {renderContent()}
     </div>
   );
 }

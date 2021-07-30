@@ -1,31 +1,29 @@
 import React from 'react';
 
-const ItemPage = () => {
+const ItemPage = ({ data }) => {
     return (
         <div className="item-page">
             <div className="item-page-info">
-                <h2 className="item-page-title">Amaretto And Cream</h2>
+                <h2 className="item-page-title">{data.strDrink}</h2>
                 <div className="item-page-desc">
-                    <p>Alcoholic</p>
-                    <p>Ordinary Drink</p>
-                    <p>Cocktail glass</p>
+                    <p>{data.strCategory}</p>
+                    <p>{data.strAlcoholic}</p>
+                    <p>{data.strGlass}</p>
                 </div>
                 <div className="item-page-text">
                     <h2 className="item-page-subtitle">Ingredients:</h2>
                     <ul> 
-                        <li>1 1/2 oz Amaretto</li>
-                        <li>1 1/2 oz Light cream</li>
+                        <li>{data.strIngredient1}  {data.strMeasure1}</li>
+                        <li>{data.strIngredient2} {data.strMeasure2}</li>
                     </ul>
                     <h2 className="item-page-subtitle">Directions:</h2>
-                    <ol>
-                        <li>Shake well with cracked ice, strain contents into a cocktail glass, and serve.</li>
-                        <li>Shake well with cracked ice, strain contents into a cocktail glass, and serve.</li>
-                        <li>Shake well with cracked ice, strain contents into a cocktail glass, and serve.</li>
-                    </ol>
+                    <ul>
+                        <li>{data.strInstructions}</li>
+                    </ul>
                 </div>
             </div>
             <div className="item-page-image">
-                <img src="https://www.thecocktaildb.com/images/media/drink/dj8n0r1504375018.jpg" />
+                <img src={data.strDrinkThumb} />
             </div>
         </div>
     )
