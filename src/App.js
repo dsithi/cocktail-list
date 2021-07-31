@@ -30,7 +30,7 @@ function App() {
       case 0: // return to start page with previous random cocktails
           return (
             <>
-              <p style={{textAlign: "center"}}>Random Cocktails</p>
+              <p style={{textAlign: "center"}}>Cocktails</p>
               <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
             </>
           );
@@ -44,7 +44,14 @@ function App() {
               <p style={{textAlign: "center"}}>Random Cocktails</p>
               <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
             </>
-            )
+            );
+      case 3: // Search results page
+              return (
+                <>
+                  <p style={{textAlign: "center"}}>Search Results</p>
+                  <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
+                </>
+              )
     }
   }
 
@@ -93,7 +100,7 @@ const generateItems = () => {
 
   return (
     <div className="container">
-      <Navbar activeTab={activeTab} onTabChange={handleTabChange} handleRefresh={handleRefresh}/>
+      <Navbar activeTab={activeTab} onTabChange={handleTabChange} handleRefresh={handleRefresh} setCocktails={setCocktails} />
       { /*
         <p style={{textAlign: "center"}}>Random Cocktails</p>
         <ItemList items={cocktails}/>

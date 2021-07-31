@@ -90,7 +90,7 @@ p {
   border: 1px solid rgba(0,0,0,0.55);
   background-color: #2f3747;
   width: 350px;
-  height: 185px;
+  height: 190px;
   display: flex;
   justify-content: space-between;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -121,8 +121,8 @@ p {
   display: flex;
   flex-wrap: wrap;
   padding-left: 15px;
-  width: 200px;
-  justify-content: space-between;
+  width: 230px;
+  justify-content: flex-start;
   margin-top: -13px;
 }
 
@@ -132,6 +132,7 @@ p {
   background-color: rgba(0,0,0,0.40);
   border-radius: 12px;
   padding: 2px;
+  margin-right: 5px;
   line-height: 1rem;
   padding: .6rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -170,7 +171,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   padding: 2px 70px;
-  width: 70%;
   margin: 0 auto;
   justify-content: space-between;
 }

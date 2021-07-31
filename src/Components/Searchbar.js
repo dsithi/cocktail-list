@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
-const Searchbar = () => {
+const Searchbar = ({ onTabChange, setCocktails }) => {
     // states for input
     const [query, setQuery] = useState('');
 
     // states for searched cocktails
-    const [cocktails, setCocktails] = useState([]);
+    //const [cocktails, setCocktails] = useState([]);
 
     const searchItems = async (e) => {
         e.preventDefault(); // avoid page refresh
@@ -34,7 +34,7 @@ const Searchbar = () => {
                 placeholder="i.e. Margarita" autoComplete="off" 
                 value={query} onChange={(e) => setQuery(e.target.value)}
                 />
-            <button className="button" type="submit">Search</button>
+            <button className="button" type="submit" onClick={()=> onTabChange(3)}>Search</button>
         </form>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Searchbar from './Searchbar';
 
-const Navbar = ({ activeTab, onTabChange, handleRefresh }) => {
+const Navbar = ({ activeTab, onTabChange, handleRefresh, setCocktails }) => {
     return (
         <div className="nav">
             <h2 className="title" onClick={() => onTabChange(0)}>Cocktail List</h2>
@@ -15,7 +15,7 @@ const Navbar = ({ activeTab, onTabChange, handleRefresh }) => {
             </h2>
             <h2 className="nav-item">All Cocktails</h2>
             <h2 className="nav-item">Filter</h2>
-            <Searchbar />
+            <Searchbar onTabChange={onTabChange} setCocktails={setCocktails}/>
         </div>
     )
 }
