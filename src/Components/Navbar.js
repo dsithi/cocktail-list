@@ -13,8 +13,8 @@ const Navbar = ({ activeTab, onTabChange, handleRefresh, setCocktails }) => {
                     }}>
                 Generate Random Cocktails
             </h2>
-            <h2 className="nav-item">All Cocktails</h2>
-            <h2 className="nav-item">Filter</h2>
+            <h2 className="nav-item" onClick={() => onTabChange(4)}>Filter</h2> 
+
             <Searchbar onTabChange={onTabChange} setCocktails={setCocktails}/>
         </div>
     )

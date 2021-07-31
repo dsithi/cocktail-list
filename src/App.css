@@ -51,6 +51,15 @@ p {
   text-decoration: underline;
 }
 
+.menu ul, .menu li {
+  list-style: none;
+}
+
+.nav label {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .form {
   display: flex;
   justify-content: center;
@@ -221,6 +230,68 @@ p {
   vertical-align: middle;
 }
 
+.pagination {
+  list-style: none;
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  height: 45px;
+}
+
+.page-item {
+  border: 1px solid #949faf;
+  border-radius: 2px solid;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 250ms;
+  margin-right: 12px;
+  height: 100%;
+  width: 40px;
+}
+
+.page-item:hover {
+  background-color:rgba(0, 0, 0, 0.94);
+}
+
+.page-item a {
+  text-decoration: none;
+}
+
+.filters {
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 1300px;
+}
+
+.filters h3 {
+  font-size: 1.5rem;
+}
+
+.filter {
+  font-size: 1.1rem;
+  list-style: none;
+  margin-right: 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter li {
+  border: 1px solid rgb(134, 131, 131);
+  margin: 5px;
+  border-radius: 7px;
+  padding: 12px 8px;
+  text-align: center;
+  line-height: 10px;
+  height: 40px;
+}
+
+.filter li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0,0,0,0.90);
+  transform: scale(1.04);
+}
 
 
 @media only screen and (max-width:580px) {
@@ -288,6 +359,22 @@ p {
     height: 250px;
     margin-left: -90px;
   }
+  .pagination {
+    margin: 0 auto;
+  }
+  .page-item {
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+  }
+  .page-item a {
+    margin-top: 1px;
+    margin-right: 3px;
+  }
+
+  .filter {
+    font-size: .9rem;
+  }
 }
 
 
@@ -301,7 +388,7 @@ p {
 }
 
 
-@media screen and  (min-width: 580px) and (max-width: 1390px) {
+@media screen and  (min-width: 380px) and (max-width: 1390px) {
   .nav {
     margin-bottom: 150px;
     font-size: .8rem;
@@ -337,5 +424,10 @@ p {
   .item-page-text ul, ol {
     margin-top: -10px;
     font-size: 1.3rem;
+  }
+  .filters {
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
   }
 }

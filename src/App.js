@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Components/Navbar';
 import ItemList from './Components/ItemList';
 import ItemPage from './Components/ItemPage';
+import FilterPage from './Components/FilterPage';
 
 function App() {
   // re render component
@@ -51,7 +52,13 @@ function App() {
                   <p style={{textAlign: "center"}}>Search Results</p>
                   <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
                 </>
-              )
+              );
+      case 4: // Filter Items Page
+                return (
+                  <>
+                    <FilterPage onTabChange={handleTabChange} setCocktail={setCocktail} setCocktails={setCocktails} cocktails={cocktails} />
+                  </>
+                )
     }
   }
 
@@ -82,8 +89,6 @@ const generateItems = () => {
           console.log(err);
         } 
       }
-  
-
   
       // 4 random cocktails
       for (let i = 0; i < 8; i++) {
