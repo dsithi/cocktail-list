@@ -45,10 +45,13 @@ p {
   margin-top: 10px;
 }
 
-.nav-item:hover, .title:hover {
+.nav-item:hover {
   cursor: pointer;
   color: rgb(233, 233, 233);
-  text-decoration: underline;
+  border: 1px solid #595d66;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.78);
 }
 
 .menu ul, .menu li {
@@ -261,7 +264,7 @@ p {
   display: flex;
   margin: 0 auto;
   padding: 10px;
-  max-width: 1300px;
+  max-width: 2000px;
 }
 
 .filters h3 {
@@ -269,7 +272,7 @@ p {
 }
 
 .filter {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   list-style: none;
   margin-right: 25px;
   display: flex;
@@ -393,9 +396,14 @@ p {
     margin-bottom: 150px;
     font-size: .8rem;
   }
+  .page-title {
+    margin-top: 200px;
+  }
+  .form {
+    margin-bottom: 120px;
+  }
   .item-page-image{
     width: auto;
-    margin: 0 auto;
   }
   .item-page img {
     width: 100px;

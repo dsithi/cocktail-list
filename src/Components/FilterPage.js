@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList';
 import Pagination from './Pagination';
+import Filter from './Filter';
 
 // Display All, or filtered cocktails (take in prop to determine)
-export const FilterPage = ({ filter, onTabChange, setCocktail, setCocktails, cocktails }) => {
+export const FilterPage = ({ onTabChange, setCocktail, setCocktails, cocktails, url, filterName }) => {
     // Create states
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,7 +16,9 @@ export const FilterPage = ({ filter, onTabChange, setCocktail, setCocktails, coc
         const fetchItems = async () => {
             try { 
                 setLoading(true);
-                const res = await fetch();
+
+                // look for cocktail info
+                const res = await fetch(url+filterName);
                 const data = await res.json();
                
                 // loop through each item in array and search for its data b/c only partial given
@@ -48,43 +51,6 @@ export const FilterPage = ({ filter, onTabChange, setCocktail, setCocktails, coc
 
     return (
         <div>
-            <div className="filters">
-                <h3>Alcoholic:</h3>
-                <ul className="filter">
-                    <li>Alcoholic</li>
-                    <li>Non-Alcoholic</li>
-                    <li>Optional Alcohol</li>
-                </ul>
-                <h3>Category:</h3>
-                <ul className="filter">
-                    <li>Ordinary Drink</li>
-                    <li>Cocktail</li>
-                    <li>Milk / Float / Shake</li>
-                    <li>Other/Unknown</li>
-                    <li>Cocoa</li>
-                    <li>Shot</li>
-                    <li>Coffee / Tea</li>
-                    <li>Homemade Liqueur</li>
-                    <li>Punch / Party Drink</li>
-                    <li>Beer</li>
-                    <li>Soft Drink / Soda</li>
-                </ul>
-                <h3>Ingredient:</h3>
-                <ul className="filter">
-                    <li>Light rum</li>
-                    <li>Cocktail</li>
-                    <li>Milk / Float / Shake</li>
-                    <li>Other/Unknown</li>
-                    <li>Cocoa</li>
-                    <li>Shot</li>
-                    <li>Coffee / Tea</li>
-                    <li>Homemade Liqueur</li>
-                    <li>Punch / Party Drink</li>
-                    <li>Beer</li>
-                    <li>Soft Drink / Soda</li>
-                </ul>
-                
-            </div>
             {currentItems ?  
             <>
                 <ItemList items={currentItems} onTabChange={onTabChange} setCocktail={setCocktail} />

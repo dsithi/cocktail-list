@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar';
 import ItemList from './Components/ItemList';
 import ItemPage from './Components/ItemPage';
 import FilterPage from './Components/FilterPage';
+import Filter from './Components/Filter';
 
 function App() {
   // re render component
@@ -18,6 +19,10 @@ function App() {
 
   // state for clicked cocktail
   const [currentCocktail, setCocktail] = useState([]);
+
+  // States for filter
+  const [url, setUrl] = useState("");
+  const [filterName, setFilterName] = useState("");
 
   // function to handle tab changes, pass to navbar
   const handleTabChange = (index) => {
@@ -42,23 +47,28 @@ function App() {
       case 2: // generate new random cocktails
             return (
             <>
-              <p style={{textAlign: "center"}}>Random Cocktails</p>
+              <p className="page-title" style={{textAlign: "center"}}>Random Cocktails</p>
               <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
             </>
             );
       case 3: // Search results page
               return (
                 <>
-                  <p style={{textAlign: "center"}}>Search Results</p>
                   <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
                 </>
               );
-      case 4: // Filter Items Page
+      case 4: // Filters Page
                 return (
                   <>
-                    <FilterPage onTabChange={handleTabChange} setCocktail={setCocktail} setCocktails={setCocktails} cocktails={cocktails} />
+                    <Filter onTabChange={handleTabChange} setUrl={setUrl} setFilterName={setFilterName} />
                   </>
-                )
+                );
+      case 5: // Filter Items Page
+                return (
+                  <>
+                    <FilterPage onTabChange={handleTabChange} setCocktail={setCocktail} cocktails={cocktails} setCocktails={setCocktails} cocktails={cocktails} url={url} filterName={filterName} />
+                  </>
+                );
     }
   }
 
@@ -81,7 +91,7 @@ const generateItems = () => {
       const randomItems = async () => {
       try {
         const res = await fetch(url);
-         const data = await res.json();
+        const data = await res.json();
   
         // push new items to array
         setCocktails(prevData => [...prevData, ...data.drinks]);  
@@ -102,6 +112,7 @@ const generateItems = () => {
   useEffect(() => {
     generateItems();
   }, []);
+
 
   return (
     <div className="container">

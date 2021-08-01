@@ -4,7 +4,7 @@ import Searchbar from './Searchbar';
 const Navbar = ({ activeTab, onTabChange, handleRefresh, setCocktails }) => {
     return (
         <div className="nav">
-            <h2 className="title" onClick={() => onTabChange(0)}>Cocktail List</h2>
+            <h2 className="title">Cocktail List</h2>
             <h2
                 className="nav-item"
                 onClick={() => {
