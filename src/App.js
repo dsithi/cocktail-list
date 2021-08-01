@@ -36,7 +36,7 @@ function App() {
       case 0: // return to start page with previous random cocktails
           return (
             <>
-              <p style={{textAlign: "center"}}>Cocktails</p>
+              <p className="page-title" style={{textAlign: "center"}}>Random Cocktails</p>
               <ItemList items={cocktails} onTabChange={handleTabChange} setCocktail={setCocktail}/>
             </>
           );

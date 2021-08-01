@@ -402,6 +402,9 @@ p {
   .form {
     margin-bottom: 120px;
   }
+  .item-page {
+    margin-top: 200px;
+  }
   .item-page-image{
     width: auto;
   }
