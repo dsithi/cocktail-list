@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList';
 import Pagination from './Pagination';
-import Filter from './Filter';
 
 // Display All, or filtered cocktails (take in prop to determine)
 export const FilterPage = ({ onTabChange, setCocktail, setCocktails, cocktails, url, filterName }) => {

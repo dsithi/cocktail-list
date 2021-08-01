@@ -1,5 +1,5 @@
-import React, { useState} from 'react'
-import FilterPage from './FilterPage';
+import React, { useState, useEffect } from 'react'
+import ReactLoading from 'react-loading';
 
 const Filter = ({ onTabChange, setUrl, setFilterName }) => {
     // Get Filter data for Alcohol type, Category, Ingredient
@@ -12,24 +12,36 @@ const Filter = ({ onTabChange, setUrl, setFilterName }) => {
     const categoryUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
     const ingredientUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list";
 
+    // loading state
+    const [loading, isLoading] = useState(true);
+
+
     // fetch data from api
     const fetchData = async (url, set) => {
         try {
             const res = await fetch(url);
             const data = await res.json();
             set(data.drinks);
+            isLoading(false);
         } catch(err) {
             console.log(err);
         }
     };
 
     // call function for each filter
-    fetchData(alcoholUrl, setAlcohols);
-    fetchData(categoryUrl, setCategories);
-    fetchData(ingredientUrl, setIngredients);
+    useEffect(() => {
+        fetchData(alcoholUrl, setAlcohols);
+        fetchData(categoryUrl, setCategories);
+        fetchData(ingredientUrl, setIngredients);
+    }, []);
+
 
     return (
-        <div className="filters">
+        <div>
+            {loading ? 
+            
+            <ReactLoading type={"balls"} color={"#ccc"}/> :
+            <div className="filters">
             <h3>Alcoholic:</h3>
             <ul className="filter">
                 {alcohol.map((item, index) => (
@@ -76,6 +88,10 @@ const Filter = ({ onTabChange, setUrl, setFilterName }) => {
                 ))}
             </ul>
         </div>
+
+            }
+        </div>
+
     )
 }
 

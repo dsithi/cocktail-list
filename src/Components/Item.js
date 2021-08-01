@@ -17,7 +17,7 @@ const Item = ({ data, onTabChange, setCocktail }) => {
                 </div>
             </div>
             <div >
-                <img className="thumbnail" src={data.strDrinkThumb} />
+                <img className="thumbnail" alt={data.strDrink} src={data.strDrinkThumb} />
             </div>
             
         </div>

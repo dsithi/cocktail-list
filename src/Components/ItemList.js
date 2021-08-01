@@ -6,7 +6,7 @@ const ItemList = ({ items, onTabChange, setCocktail }) => {
         <div className="item-list">
             {items ? 
                 items.map(data => (
-                    <Item data={data} key={data.idDrink} onTabChange={onTabChange} setCocktail={setCocktail}/>
+                    <Item data={data} key={data.idDrink} alt={data.strDrink} onTabChange={onTabChange} setCocktail={setCocktail}/>
                 )) :
                 <p>No results found</p>
             }

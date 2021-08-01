@@ -36,7 +36,7 @@ const ItemPage = ({ data }) => {
                 </div>
             </div>
             <div className="item-page-image">
-                <img src={data.strDrinkThumb} />
+                <img alt={data.strDrink} src={data.strDrinkThumb} />
             </div>
         </div>
     )
