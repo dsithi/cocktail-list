@@ -44,7 +44,6 @@ export const FilterPage = ({ onTabChange, setCocktail, setCocktails, cocktails, 
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = cocktails.slice(indexOfFirstItem, indexOfLastItem);
 
-
     // change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
