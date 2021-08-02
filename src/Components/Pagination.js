@@ -1,9 +1,7 @@
-import React, {useState} from 'react'
-// import ReactLoading from 'react-loading';
+import React from 'react'
 
 export const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
     const pageNumbers = [];
-    //const [loading, isLoading] = useState(true);
 
     for(let i = 1; i <= Math.ceil(totalItems/itemsPerPage); i++) {
         pageNumbers.push(i);
@@ -14,21 +12,23 @@ export const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
             <ul className="pagination">
             {pageNumbers.map(number => (
                 <li key={number} className="page-item">
-                    <a onClick={() => paginate(number)} className="page-link">
+                    <p onClick={() => paginate(number)} className="page-link">
                         {number}
-                    </a>
+                    </p>
                 </li>
-            ))}
+            ))
+            }
         </ul>
-        )
+        );
     }
 
-    return (
 
+    return (
         <div>
             {renderPages()}
         </div>
     )
+
 }
 
 export default Pagination;
