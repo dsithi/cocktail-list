@@ -12,5 +12,5 @@ A web application that fetches data from https://www.thecocktaildb.com/ and allo
 ![](random.gif)
 *Demo of random cocktails*
 
-![](searchResult.gif)
+![](searchResults.gif)
 *Demo of search component*
