@@ -6,11 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 A web application that fetches data from https://www.thecocktaildb.com/ and allows users to see a generated list of cocktails, search/filter cocktails, and display informatoin on specific items.
 
-![]filter.gif
+![](filter.gif)
 *Demo of filter and pagination component*
 
-![]random.gif
+![](random.gif)
 *Demo of random cocktails*
 
-![]searchResult.gif
+![](searchResult.gif)
 *Demo of search component*
